@@ -1,19 +1,32 @@
-# FHEVM React Template
+# 🎨 FHEVM Color Switch
 
-A minimal React frontend template for building FHEVM-enabled decentralized applications (dApps). This template provides a simple development interface for interacting with FHEVM smart contracts, specifically the `FHECounter.sol` contract.
+A minimal **React + FHEVM dApp** inspired by the classic *Color Switch* game — rebuilt for the decentralized world 🌐.
 
-## 🚀 What is FHEVM?
+This project demonstrates how to use **Fully Homomorphic Encryption Virtual Machine (FHEVM)** to create privacy-preserving game logic on-chain.  
+The frontend is built with **React**, **TypeScript**, and **Framer Motion**, while the smart contract logic interacts through the **FHEVM SDK**.
 
-FHEVM (Fully Homomorphic Encryption Virtual Machine) enables computation on encrypted data directly on Ethereum. This template demonstrates how to build dApps that can perform computations while keeping data private.
+---
 
-## ✨ Features
+## 🧠 Concept
 
-- **🔐 FHEVM Integration**: Built-in support for fully homomorphic encryption
-- **⚛️ React + Next.js**: Modern, performant frontend framework
-- **🎨 Tailwind CSS**: Utility-first styling for rapid UI development
-- **🔗 RainbowKit**: Seamless wallet connection and management
-- **🌐 Multi-Network Support**: Works on both Sepolia testnet and local Hardhat node
-- **📦 Monorepo Structure**: Organized packages for SDK, contracts, and frontend
+In **FHEVM Color Switch**, the player controls a bouncing ball that passes through rotating obstacles.  
+Each obstacle segment has a color — the player must only pass through the segment that matches their current color.
+
+All game events (like color changes, scores, and validation) are processed securely through **FHE-encrypted values**, ensuring data privacy on-chain.
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|:------|:------------|
+| Frontend | React, TypeScript, TailwindCSS, Framer Motion |
+| Blockchain | FHEVM (Fully Homomorphic Encryption Virtual Machine) |
+| Wallet Integration | Wagmi + RainbowKit |
+| Encryption SDK | `@fhevm-sdk` |
+| Build Tool | Vite |
+
+---
 
 ## 📋 Prerequinextjss
 
@@ -31,7 +44,7 @@ Before you begin, ensure you have:
 ```bash
 # Clone the repository
 git clone <repository-url>
-cd fhevm-react-template
+cd fhevm-color-switch
 
 # Initialize submodules (includes fhevm-hardhat-template)
 git submodule update --init --recursive
@@ -124,7 +137,7 @@ For more details, see the [MetaMask development guide](https://docs.metamask.io/
 This template uses a monorepo structure with three main packages:
 
 ```
-fhevm-react-template/
+fhevm-color-switch/
 ├── packages/
 │   ├── fhevm-hardhat-template/    # Smart contracts & deployment
 │   ├── fhevm-sdk/                 # FHEVM SDK package
@@ -134,8 +147,8 @@ fhevm-react-template/
 
 ### Key Components
 
-#### 🔗 FHEVM Integration (`packages/nextjs/hooks/fhecounter-example/`)
-- **`useFHECounterWagmi.tsx`**: Example hook demonstrating FHEVM contract interaction
+#### 🔗 FHEVM Integration (`packages/nextjs/hooks`)
+- **`useFHEColorSwitch.tsx`**: Example hook demonstrating FHEVM contract interaction
 - Essential hooks for FHEVM-enabled smart contract communication
 - Easily copyable to any FHEVM + React project
 
