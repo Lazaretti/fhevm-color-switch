@@ -7,8 +7,13 @@ import { GenericContractsDeclaration } from "~~/utils/helper/contract";
 const deployedContracts = {
   11155111: {
     FHEColorSwitch: {
-      address: "0x553816cA5B0844C9a9eCC7D016CF66DC60C43812",
+      address: "0xDa2141106b714991F1614749d154d7E8bce576DC",
       abi: [
+        {
+          inputs: [],
+          name: "ZamaProtocolUnsupported",
+          type: "error",
+        },
         {
           inputs: [
             {
@@ -28,46 +33,8 @@ const deployedContracts = {
           type: "function",
         },
         {
-          inputs: [
-            {
-              internalType: "address",
-              name: "user",
-              type: "address",
-            },
-          ],
-          name: "lastScore",
-          outputs: [
-            {
-              internalType: "euint32",
-              name: "",
-              type: "bytes32",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
           inputs: [],
-          name: "protocolId",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "pure",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "user",
-              type: "address",
-            },
-          ],
-          name: "totalScores",
+          name: "confidentialProtocolId",
           outputs: [
             {
               internalType: "uint256",
@@ -76,52 +43,6 @@ const deployedContracts = {
             },
           ],
           stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            {
-              internalType: "address",
-              name: "user",
-              type: "address",
-            },
-          ],
-          name: "viewEncryptedScores",
-          outputs: [
-            {
-              internalType: "euint32[]",
-              name: "",
-              type: "bytes32[]",
-            },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-      ],
-      inheritedFunctions: {},
-      deployedOnBlock: 9368216,
-    },
-  },
-  31337: {
-    FHEColorSwitch: {
-      address: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
-      abi: [
-        {
-          inputs: [
-            {
-              internalType: "externalEuint32",
-              name: "cipherScore",
-              type: "bytes32",
-            },
-            {
-              internalType: "bytes",
-              name: "validationProof",
-              type: "bytes",
-            },
-          ],
-          name: "addEncryptedScore",
-          outputs: [],
-          stateMutability: "nonpayable",
           type: "function",
         },
         {
@@ -141,19 +62,6 @@ const deployedContracts = {
             },
           ],
           stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "protocolId",
-          outputs: [
-            {
-              internalType: "uint256",
-              name: "",
-              type: "uint256",
-            },
-          ],
-          stateMutability: "pure",
           type: "function",
         },
         {

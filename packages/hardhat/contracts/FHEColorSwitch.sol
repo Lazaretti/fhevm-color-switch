@@ -2,14 +2,14 @@
 pragma solidity ^0.8.24;
 
 import {FHE, euint32, externalEuint32} from "@fhevm/solidity/lib/FHE.sol";
-import {SepoliaConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
+import {ZamaEthereumConfig} from "@fhevm/solidity/config/ZamaConfig.sol";
 
 /**
  * @title FHEColorSwitch
  * @notice Simple encrypted score tracker for Color Switch game using FHE.
  *         Players submit encrypted scores; all data remains encrypted on-chain.
  */
-contract FHEColorSwitch is SepoliaConfig {
+contract FHEColorSwitch is ZamaEthereumConfig {
     /// @dev Mapping: player's address => list of encrypted scores
     mapping(address => euint32[]) private _playerScores;
 

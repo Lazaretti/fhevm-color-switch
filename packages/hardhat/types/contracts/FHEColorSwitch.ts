@@ -24,8 +24,8 @@ export interface FHEColorSwitchInterface extends Interface {
   getFunction(
     nameOrSignature:
       | "addEncryptedScore"
+      | "confidentialProtocolId"
       | "lastScore"
-      | "protocolId"
       | "totalScores"
       | "viewEncryptedScores"
   ): FunctionFragment;
@@ -35,12 +35,12 @@ export interface FHEColorSwitchInterface extends Interface {
     values: [BytesLike, BytesLike]
   ): string;
   encodeFunctionData(
-    functionFragment: "lastScore",
-    values: [AddressLike]
+    functionFragment: "confidentialProtocolId",
+    values?: undefined
   ): string;
   encodeFunctionData(
-    functionFragment: "protocolId",
-    values?: undefined
+    functionFragment: "lastScore",
+    values: [AddressLike]
   ): string;
   encodeFunctionData(
     functionFragment: "totalScores",
@@ -55,8 +55,11 @@ export interface FHEColorSwitchInterface extends Interface {
     functionFragment: "addEncryptedScore",
     data: BytesLike
   ): Result;
+  decodeFunctionResult(
+    functionFragment: "confidentialProtocolId",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(functionFragment: "lastScore", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "protocolId", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "totalScores",
     data: BytesLike
@@ -116,9 +119,9 @@ export interface FHEColorSwitch extends BaseContract {
     "nonpayable"
   >;
 
-  lastScore: TypedContractMethod<[user: AddressLike], [string], "view">;
+  confidentialProtocolId: TypedContractMethod<[], [bigint], "view">;
 
-  protocolId: TypedContractMethod<[], [bigint], "view">;
+  lastScore: TypedContractMethod<[user: AddressLike], [string], "view">;
 
   totalScores: TypedContractMethod<[user: AddressLike], [bigint], "view">;
 
@@ -140,11 +143,11 @@ export interface FHEColorSwitch extends BaseContract {
     "nonpayable"
   >;
   getFunction(
+    nameOrSignature: "confidentialProtocolId"
+  ): TypedContractMethod<[], [bigint], "view">;
+  getFunction(
     nameOrSignature: "lastScore"
   ): TypedContractMethod<[user: AddressLike], [string], "view">;
-  getFunction(
-    nameOrSignature: "protocolId"
-  ): TypedContractMethod<[], [bigint], "view">;
   getFunction(
     nameOrSignature: "totalScores"
   ): TypedContractMethod<[user: AddressLike], [bigint], "view">;
